@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PracticeApp.Models;
 
 namespace PracticeApp.Controllers
 {
+    [Authorize(Roles="admin")]
     public class HomeController : Controller
     {
         public IActionResult Index()
