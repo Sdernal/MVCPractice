@@ -1,0 +1,11 @@
+﻿@page
+@model RazorPagesApp.Pages.FactorialModel
+@{
+    ViewData["Title"] = "Factorial";
+}
+
+<h2>@Model.Message</h2>
+<form method="post">
+    <input type="number" name="number" />
+    <input type="submit" name="Send" />
+</form>

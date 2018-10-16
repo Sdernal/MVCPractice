@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestApp", "UnitTestApp\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestApp.Tests", "UnitTestApp.Tests\UnitTestApp.Tests.csproj", "{4265EC48-5855-40D9-85C3-0506A30669A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPagesApp", "RazorPagesApp\RazorPagesApp.csproj", "{A942D97C-A964-41E7-9344-CE0BEFF95B18}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4265EC48-5855-40D9-85C3-0506A30669A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4265EC48-5855-40D9-85C3-0506A30669A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4265EC48-5855-40D9-85C3-0506A30669A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A942D97C-A964-41E7-9344-CE0BEFF95B18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A942D97C-A964-41E7-9344-CE0BEFF95B18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A942D97C-A964-41E7-9344-CE0BEFF95B18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A942D97C-A964-41E7-9344-CE0BEFF95B18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

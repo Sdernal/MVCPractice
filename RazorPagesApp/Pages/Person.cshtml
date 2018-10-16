@@ -1,0 +1,32 @@
+﻿@page "{handler?}"
+@using RazorPagesApp.Models
+@model RazorPagesApp.Pages.PersonModel
+@{
+    ViewData["Title"] = "Person";
+}
+
+@*<h2>@Model.Message</h2>
+<form method="post">
+    <label for="name">Имя</label><br />
+    <input type="text" name="name" id="name" /><br /><br />
+    <label for="age">Возраст</label><br />
+    <input type="number" name="age" id="age" /><br /><br />
+    <input type="submit" value="Отправить" />
+</form>*@
+
+<h2>Список пользователей</h2>
+<form method="post">
+    <input type="number" name="age" />
+    <input type="submit" asp-page-handler="GreaterThan" value="Старше" />
+    <input type="submit" asp-page-handler="LessThan" value="Младше" />
+</form>
+<table class="table">
+    <tr><th>Name</th><th>Age</th></tr>
+    @foreach(Person person in Model.DisplayedPeople)
+    {
+        <tr>
+            <td>@person.Name</td>
+            <td>@person.Age</td>
+        </tr>
+    }
+</table>
