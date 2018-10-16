@@ -88,5 +88,49 @@ namespace UnitTestApp.Tests
             Assert.Equal("About", redirectToActionResult.ActionName);
             mock.Verify(r => r.Create(newPhone));
         }
+
+        [Fact]
+        public void GetPhoneReturnsBadRequestResultWhenIdIsNull()
+        {
+            var mock = new Mock<IRepository>();
+            var controller = new HomeController(mock.Object);
+
+            var result = controller.GetPhone(null);
+
+            Assert.IsType<BadRequestResult>(result);
+        }
+
+        [Fact]
+        public void GetPhoneReturnsNotFoundResultWhenPhoneNotFound()
+        {
+            int testPhoneId = 1;
+            var mock = new Mock<IRepository>();
+            mock.Setup(repo => repo.Get(testPhoneId))
+                .Returns(null as Phone);
+            var controller = new HomeController(mock.Object);
+
+            var result = controller.GetPhone(testPhoneId);
+
+            Assert.IsType<NotFoundResult>(result);
+        }
+
+        [Fact]
+        public void GetPhoneReturnsViewResultWithPhone()
+        {
+            int testPhoneId = 1;
+            var mock = new Mock<IRepository>();
+            mock.Setup(repo => repo.Get(testPhoneId))
+                .Returns(GetTestPhones().FirstOrDefault(p => p.Id == testPhoneId));
+            var controller = new HomeController(mock.Object);
+
+            var result = controller.GetPhone(testPhoneId);
+
+            var viewResult = Assert.IsType<ViewResult>(result);
+            var model = Assert.IsType<Phone>(viewResult.ViewData.Model);
+            Assert.Equal("IPhone Xs Max", model.Name);
+            Assert.Equal(130000, model.Price);
+            Assert.Equal("Apple", model.Company);
+            Assert.Equal(testPhoneId, model.Id);
+        }
     }
 }

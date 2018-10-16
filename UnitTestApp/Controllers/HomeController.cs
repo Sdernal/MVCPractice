@@ -31,7 +31,7 @@ namespace UnitTestApp.Controllers
 
         public IActionResult GetPhone(int? id)
         {
-            if (id.HasValue)
+            if (!id.HasValue)
                 return BadRequest();
             Phone phone = repo.Get(id.Value);
             if (phone == null)
