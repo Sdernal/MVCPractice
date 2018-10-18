@@ -1,0 +1,16 @@
+﻿@model  IEnumerable<UploadFileApp.Models.FileModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h3>Выберите файл для загрузки</h3>
+<form asp-action="AddFile" asp-controller="Home" method="post" enctype="multipart/form-data">
+    <input type="file" name="uploadedFile" /><br />
+    <input type="submit" value="Upload" />
+</form>
+
+<h3>Все вайлы</h3>
+@foreach(var f in Model)
+{
+    <p><img src="@Url.Content(f.Path)"</p>
+}
